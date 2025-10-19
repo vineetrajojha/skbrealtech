@@ -22,6 +22,14 @@
             background-position: center;
         }
 
+        @media (max-width: 768px) {
+            .hero-bg {
+                background: url('mobhero.png');
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
         .service-icon {
             background: #f5f5f5;
             border-radius: 20px;
@@ -30,6 +38,20 @@
             align-items: center;
             justify-content: center;
             min-height: 140px;
+        }
+
+        @media (max-width: 768px) {
+            .service-icon {
+                padding: 0.75rem;
+                min-height: 70px;
+                border-radius: 12px;
+                margin-bottom: 1rem;
+            }
+            .service-icon p {
+                font-size: 0.75rem;
+                line-height: 1.1;
+                white-space: nowrap;
+            }
         }
 
         .nav-link {
@@ -70,6 +92,75 @@
             visibility: hidden;
         }
 
+        /* Mobile horizontal scroll for services and reviews */
+        @media (max-width: 768px) {
+            .services-scroll {
+                display: flex;
+                overflow-x: auto;
+                gap: 1rem;
+                padding-bottom: 1rem;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+            }
+            
+            .services-scroll::-webkit-scrollbar {
+                height: 4px;
+            }
+            
+            .services-scroll::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+            
+            .services-scroll::-webkit-scrollbar-thumb {
+                background: #765c2a;
+                border-radius: 10px;
+            }
+            
+            .service-item {
+                flex-shrink: 0;
+                width: calc(100vw - 3rem);
+                max-width: 300px;
+                scroll-snap-align: center;
+            }
+            
+            .service-item .service-img {
+                background-color: white;
+            }
+            
+            .reviews-scroll {
+                display: flex;
+                overflow-x: auto;
+                gap: 1rem;
+                padding-bottom: 1rem;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+            }
+            
+            .reviews-scroll::-webkit-scrollbar {
+                height: 4px;
+            }
+            
+            .reviews-scroll::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+            
+            .reviews-scroll::-webkit-scrollbar-thumb {
+                background: #765c2a;
+                border-radius: 10px;
+            }
+            
+            .review-item {
+                flex-shrink: 0;
+                width: calc(100vw - 3rem);
+                max-width: 350px;
+                scroll-snap-align: center;
+            }
+        }
+
         .product-img {
             width: 280px;
             height: 280px;
@@ -81,9 +172,10 @@
         .service-img {
             width: 320px;
             height: 240px;
-            object-fit: cover;
+            object-fit: contain;
             border-radius: 20px;
             flex-shrink: 0;
+            background-color: #f8f8f8;
         }
 
         /* Scroll reveal animations */
@@ -171,17 +263,17 @@
     <section id="slogan" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-20 reveal-group">
+            <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-6 mb-8 md:mb-20 reveal-group">
                 <div class="text-center">
                     <div class="service-icon mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
-                        <p class="text-lg font-medium">Elite Spaces</p>
+                        <p class="text-xs md:text-lg font-medium">Elite Spaces</p>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
                 <div class="text-center">
                     <div class="service-icon mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
-                        <p class="text-lg font-medium">Trusted Deals</p>
+                        <p class="text-xs md:text-lg font-medium">Trusted Deals</p>
                     </div>
                     
                 </div>
@@ -189,7 +281,7 @@
                 <!-- Service 3 -->
                 <div class="text-center">
                     <div class="service-icon mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
-                        <p class="text-lg font-medium">Unmatched Class</p>
+                        <p class="text-xs md:text-lg font-medium">Unmatched Class</p>
                     </div>
                 </div>
 
@@ -198,22 +290,43 @@
             <!--  Services -->
             <h2 class="text-[#765C2A] text-4xl md:text-5xl font-normal text-center mb-12 reveal" id="showcase">Our Services</h2>
             
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 reveal-group">
+            <!-- Desktop Grid -->
+            <div class="hidden md:grid grid-cols-4 gap-6 mb-20 reveal-group">
                 <div class="text-center">
-                    <div class="service-img bg-cover bg-center mb-4 h-64 w-full mx-auto" style="background-image: url('services/site.jpg');"></div>
+                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-64 w-full mx-auto" style="background-image: url('services/site.jpg');"></div>
                     <p class="text-lg text-[#765C2A] font-medium">Site Visit</p>
                 </div>
                 <div class="text-center">
-                    <div class="service-img bg-cover bg-center mb-4 h-64 w-full mx-auto" style="background-image: url('services/guide.jpg');"></div>
+                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-64 w-full mx-auto" style="background-image: url('services/guide.jpg');"></div>
                     <p class="text-lg text-[#765C2A] font-medium">Expert Guidance</p>
                 </div>
                 <div class="text-center">
-                    <div class="service-img bg-cover bg-center mb-4 h-64 w-full mx-auto" style="background-image: url('services/legal.jpg');"></div>
+                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-64 w-full mx-auto" style="background-image: url('services/legal.jpg');"></div>
                     <p class="text-lg text-[#765C2A] font-medium">Legal Assistance</p>
                 </div>
                 <div class="text-center">
-                    <div class="service-img bg-cover bg-center mb-4 h-64 w-full mx-auto" style="background-image: url('services/call.jpg');"></div>
+                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-64 w-full mx-auto" style="background-image: url('services/call.jpg');"></div>
                     <p class="text-lg text-[#765C2A] font-medium">Schedule a Call</p>
+                </div>
+            </div>
+
+            <!-- Mobile Horizontal Scroll -->
+            <div class="md:hidden services-scroll mb-20 reveal-group">
+                <div class="service-item text-center">
+                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-48 w-full mx-auto" style="background-image: url('services/site.jpg');"></div>
+                    <p class="text-base text-[#765C2A] font-medium">Site Visit</p>
+                </div>
+                <div class="service-item text-center">
+                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-48 w-full mx-auto" style="background-image: url('services/guide.jpg');"></div>
+                    <p class="text-base text-[#765C2A] font-medium">Expert Guidance</p>
+                </div>
+                <div class="service-item text-center">
+                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-48 w-full mx-auto" style="background-image: url('services/legal.jpg');"></div>
+                    <p class="text-base text-[#765C2A] font-medium">Legal Assistance</p>
+                </div>
+                <div class="service-item text-center">
+                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-48 w-full mx-auto" style="background-image: url('services/call.jpg');"></div>
+                    <p class="text-base text-[#765C2A] font-medium">Schedule a Call</p>
                 </div>
             </div>
 
@@ -349,7 +462,8 @@
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-4xl text-[#765C2A] md:text-5xl font-normal text-center mb-16 reveal">What Our Clients Say</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-group">
+            <!-- Desktop Grid -->
+            <div class="hidden md:grid grid-cols-2 gap-8 reveal-group">
                 <!-- Review 1 -->
                 <div class="bg-[#F6EEE6] rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
                     <div class="flex items-center mb-4">
@@ -403,6 +517,66 @@
                     
                     <blockquote class="text-gray-700 leading-relaxed text-sm">
                         <p class="mb-3">I recently had the pleasure of working with Yash Aggarwal and his team, and I must say, their service was top-notch! From start to finish, they were professional, knowledgeable, and courteous.</p>
+                        <p>Their expertise in the real estate market is impressive, and they took the time to understand my needs and preferences. They presented me with excellent options and guided me through the entire process seamlessly.</p>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Mobile Horizontal Scroll -->
+            <div class="md:hidden reviews-scroll reveal-group">
+                <!-- Review 1 -->
+                <div class="review-item bg-[#F6EEE6] rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-[#765c2a] to-[#523729] rounded-full flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-xs">PA</span>
+                        </div>
+                        <div>
+                            <h4 class="text-[#765c2a] font-semibold text-sm">Priya Ahuja</h4>
+                            <p class="text-gray-600 text-xs">Investor, Gurugram</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i class="fas fa-star text-xs"></i>
+                            <i class="fas fa-star text-xs"></i>
+                            <i class="fas fa-star text-xs"></i>
+                            <i class="fas fa-star text-xs"></i>
+                            <i class="fas fa-star text-xs"></i>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="text-gray-700 leading-relaxed text-xs">
+                        <p class="mb-2">SKB RealTech's Yash Agrawal is a talented entrepreneur, known for his dedicated service delivery and trustworthy personality.</p>
+                        <p class="mb-2">If you believe that you can build a home and find peace, then Yash has the experience to help you find it.</p>
+                        <p>My best wishes are with him to always stand firmly with the interests of his clients and to continue progressing with honesty and excellence.</p>
+                    </blockquote>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-item bg-[#F6EEE6] rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div class="flex items-center mb-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-[#765c2a] to-[#523729] rounded-full flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-xs">NC</span>
+                        </div>
+                        <div>
+                            <h4 class="text-[#765c2a] font-semibold text-sm">Nakul Chauhan</h4>
+                            <p class="text-gray-600 text-xs">Investor, Gurugram</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <div class="flex text-yellow-400 mb-2">
+                            <i class="fas fa-star text-xs"></i>
+                            <i class="fas fa-star text-xs"></i>
+                            <i class="fas fa-star text-xs"></i>
+                            <i class="fas fa-star text-xs"></i>
+                            <i class="fas fa-star text-xs"></i>
+                        </div>
+                    </div>
+                    
+                    <blockquote class="text-gray-700 leading-relaxed text-xs">
+                        <p class="mb-2">I recently had the pleasure of working with Yash Aggarwal and his team, and I must say, their service was top-notch! From start to finish, they were professional, knowledgeable, and courteous.</p>
                         <p>Their expertise in the real estate market is impressive, and they took the time to understand my needs and preferences. They presented me with excellent options and guided me through the entire process seamlessly.</p>
                     </blockquote>
                 </div>
@@ -589,6 +763,86 @@
                 button.textContent = 'Read More';
             }
         }
+
+        // Auto-scroll functionality for mobile sections
+        function createAutoScroll(containerSelector, itemSelector) {
+            const container = document.querySelector(containerSelector);
+            if (!container) return;
+
+            const items = container.querySelectorAll(itemSelector);
+            if (items.length <= 1) return;
+
+            let currentIndex = 0;
+            let isScrolling = false;
+            let autoScrollInterval;
+
+            function scrollToItem(index) {
+                if (isScrolling) return;
+                isScrolling = true;
+                
+                const item = items[index];
+                if (item) {
+                    const containerWidth = container.offsetWidth;
+                    const itemWidth = item.offsetWidth;
+                    const scrollLeft = (itemWidth + 16) * index; // 16px is gap
+                    
+                    container.scrollTo({
+                        left: scrollLeft,
+                        behavior: 'smooth'
+                    });
+                }
+                
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 500);
+            }
+
+            function startAutoScroll() {
+                autoScrollInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % items.length;
+                    scrollToItem(currentIndex);
+                }, 3000); // Change every 3 seconds
+            }
+
+            function stopAutoScroll() {
+                if (autoScrollInterval) {
+                    clearInterval(autoScrollInterval);
+                }
+            }
+
+            // Start auto-scroll
+            startAutoScroll();
+
+            // Pause auto-scroll on hover/touch
+            container.addEventListener('mouseenter', stopAutoScroll);
+            container.addEventListener('mouseleave', startAutoScroll);
+            container.addEventListener('touchstart', stopAutoScroll);
+            container.addEventListener('touchend', () => {
+                setTimeout(startAutoScroll, 2000); // Resume after 2 seconds
+            });
+
+            // Handle manual scroll
+            container.addEventListener('scroll', () => {
+                if (!isScrolling) {
+                    stopAutoScroll();
+                    setTimeout(startAutoScroll, 5000); // Resume after 5 seconds of no interaction
+                }
+            });
+        }
+
+        // Initialize auto-scroll for both sections on mobile
+        if (window.innerWidth <= 768) {
+            createAutoScroll('.services-scroll', '.service-item');
+            createAutoScroll('.reviews-scroll', '.review-item');
+        }
+
+        // Re-initialize on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth <= 768) {
+                createAutoScroll('.services-scroll', '.service-item');
+                createAutoScroll('.reviews-scroll', '.review-item');
+            }
+        });
     </script>
 </body>
 </html>
