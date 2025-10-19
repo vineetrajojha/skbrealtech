@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKB REALTECH : Find Your Property </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+    * {
+        font-family: 'Libre Caslon Text', serif;
+    }
+</style>
+    <style>
+        .hero-bg {
+            background: url('hero.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-icon {
+            background: #f5f5f5;
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 140px;
+        }
+
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #666;
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding-bottom: 1rem;
+            scroll-behavior: smooth;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            height: 8px;
+            visibility: hidden;
+        }
+
+        .scroll-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+            visibility: hidden;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+            visibility: hidden;
+        }
+
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+            visibility: hidden;
+        }
+
+        .product-img {
+            width: 280px;
+            height: 280px;
+            object-fit: cover;
+            border-radius: 20px;
+            flex-shrink: 0;
+        }
+
+        .service-img {
+            width: 320px;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .reveal-group > * {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            will-change: opacity, transform;
+        }
+        .reveal-group.visible > * {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#F6EEE6] text-[#523729]">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <img src="logo.png" alt="SKB REALTECH" class="w-10 h-10"> 
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-[#523729]">home</a>
+                    <a href="#showcase" class="nav-link text-[#523729]">about us</a>
+                    <a href="#services" class="nav-link text-[#523729]">career</a>
+                    <a href="#home" class="nav-link text-[#523729]">contact us</a>
+                    <a href="#showcase" class="nav-link text-[#523729]">properties</a>
+                    <a href="#services" class="nav-link text-[#523729]">maps</a>
+                    <a href="#services" class="nav-link text-[#523729]">social media</a>
+                </div>
+
+                <!-- Get in Touch Button -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-white text-[#523729] px-8 py-3 rounded-full font-medium hover:text-white hover:bg-[#523729] transition">
+                        schedule a call
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-[#523729]">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-[#523729]">home</a>
+                <a href="#showcase" class="block py-2 text-[#523729]">about us</a>
+                <a href="#services" class="block py-2 text-[#523729]">career</a>
+                <a href="#contact" class="block py-2 text-[#523729]">contact us</a>
+                <a href="#showcase" class="block py-2 text-[#523729]">properties</a>
+                <a href="#services" class="block py-2 text-[#523729]">maps</a>
+                <a href="#services" class="block py-2 text-[#523729]">social media</a>
+                <a href="#contact" class="block mt-4 bg-white text-[#523729] px-6 py-3 rounded-full text-center font-medium hover:text-white hover:bg-[#523729] transition">
+                    schedule a call
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <div class="flex items-center justify-center space-x-12">   
+            </div>
+        </div>
+    </section>
+
+    <!-- Slogan -->
+    <section id="slogan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-20 reveal-group">
+                <div class="text-center">
+                    <div class="service-icon mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
+                        <p class="text-lg font-medium">Elite Spaces</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="text-center">
+                    <div class="service-icon mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
+                        <p class="text-lg font-medium">Trusted Deals</p>
+                    </div>
+                    
+                </div>
+
+                <!-- Service 3 -->
+                <div class="text-center">
+                    <div class="service-icon mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
+                        <p class="text-lg font-medium">Unmatched Class</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--  Services -->
+            <h2 class="text-[#765C2A] text-4xl md:text-5xl font-normal text-center mb-12 reveal" id="showcase">Our Services</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 reveal-group">
+                <div class="text-center">
+                    <div class="service-img bg-cover bg-center mb-4 h-64 w-full mx-auto" style="background-image: url('services/site.jpg');"></div>
+                    <p class="text-lg text-[#765C2A] font-medium">Site Visit</p>
+                </div>
+                <div class="text-center">
+                    <div class="service-img bg-cover bg-center mb-4 h-64 w-full mx-auto" style="background-image: url('services/guide.jpg');"></div>
+                    <p class="text-lg text-[#765C2A] font-medium">Expert Guidance</p>
+                </div>
+                <div class="text-center">
+                    <div class="service-img bg-cover bg-center mb-4 h-64 w-full mx-auto" style="background-image: url('services/legal.jpg');"></div>
+                    <p class="text-lg text-[#765C2A] font-medium">Legal Assistance</p>
+                </div>
+                <div class="text-center">
+                    <div class="service-img bg-cover bg-center mb-4 h-64 w-full mx-auto" style="background-image: url('services/call.jpg');"></div>
+                    <p class="text-lg text-[#765C2A] font-medium">Schedule a Call</p>
+                </div>
+            </div>
+
+            <!-- Types of Properties -->
+            <h2 class="text-4xl text-[#765C2A] md:text-5xl font-normal text-center mb-12 reveal" >Types of Properties</h2>
+            
+            <div class="scroll-container reveal-group">
+                <div class="text-center">
+                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/1.jpg');"></div>
+                    <p class="text-lg font-medium">Product</p>
+                </div>
+                <div class="text-center">
+                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/2.jpg');"></div>
+                    <p class="text-lg font-medium">Product</p>
+                </div>
+                <div class="text-center">
+                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/3.jpg');"></div>
+                    <p class="text-lg font-medium">Product</p>
+                </div>
+                <div class="text-center">
+                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/4.jpg');"></div>
+                    <p class="text-lg font-medium">Product</p>
+                </div>
+                <div class="text-center">
+                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/5.jpg');"></div>
+                    <p class="text-lg font-medium">Product</p>
+                </div>
+                <div class="text-center">
+                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/6.jpg');"></div>
+                    <p class="text-lg font-medium">Product</p>
+                </div>
+                <div class="text-center">
+                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/7.jpg');"></div>
+                    <p class="text-lg font-medium">Product</p>
+                </div>
+                <div class="text-center">
+                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/8.jpg');"></div>
+                    <p class="text-lg font-medium">Product</p>
+                </div>
+                <div class="text-center">
+                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/9.jpg');"></div>
+                    <p class="text-lg font-medium">Product</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-normal text-center mb-16">Get in Touch</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 reveal-group">
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-3xl font-normal mb-8">Contact Information</h3>
+                    
+                    <div class="space-y-8">
+                        <!-- Phone -->
+                        <div>
+                            <h4 class="text-2xl font-normal mb-2">Phone</h4>
+                            <p class="text-gray-600 text-lg">+91 83094 61997<br>+91 8630688942</p>
+                        </div>
+
+                        <!-- Email -->
+                        <div>
+                            <h4 class="text-2xl font-normal mb-2">Email</h4>
+                            <p class="text-gray-600 text-lg">citizensglasswork@gmail.com</p>
+                        </div>
+
+                        <!-- Address -->
+                        <div>
+                            <h4 class="text-2xl font-normal mb-2">Address</h4>
+                            <p class="text-gray-600 text-lg">Hyderabad,<br>India<br></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Request a Quote Form -->
+                <div>
+                    <h3 class="text-3xl font-normal mb-8">Request a Quote</h3>
+                    
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Full Name -->
+                            <div>
+                                <label class="block text-lg mb-2">Full Name</label>
+                                <input type="text" placeholder="Your Name" 
+                                    class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:border-gray-400">
+                            </div>
+
+                            <!-- Email Address -->
+                            <div>
+                                <label class="block text-lg mb-2">Email Address</label>
+                                <input type="email" placeholder="you@email.com" 
+                                    class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:border-gray-400">
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Phone Number -->
+                            <div>
+                                <label class="block text-lg mb-2">Phone Number</label>
+                                <input type="tel" placeholder="+91 7091599891" 
+                                    class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:border-gray-400">
+                            </div>
+
+                            <!-- Project Type -->
+                            <div>
+                                <label class="block text-lg mb-2">Project Type</label>
+                                <select class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:border-gray-400">
+                                    <option>Select Project Type</option>
+                                    <option>Customized Mirrors</option>
+                                    <option>Home Decor</option>
+                                    <option>Windows & Glass</option>
+                                    <option>Commercial Project</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Project Details -->
+                        <div>
+                            <label class="block text-lg mb-2">Project Details</label>
+                            <textarea rows="5" placeholder="Tell us about your project, timeline, and any specific requirements..." 
+                                class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:outline-none focus:border-gray-400 resize-none"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="flex justify-end">
+                            <button type="submit" 
+                                class="bg-black text-[#523729] px-12 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-[#523729] py-8">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2025 Citizens. All rights reserved. Created with ❤️ by cres&co</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Reveal on scroll using IntersectionObserver
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -60px 0px'
+        };
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // For one-time animation, unobserve
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        // Observe individual reveal elements
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Observe groups so children animate together when group enters
+        document.querySelectorAll('.reveal-group').forEach(group => revealObserver.observe(group));
+    </script>
+</body>
+</html>
