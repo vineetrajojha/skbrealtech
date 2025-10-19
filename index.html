@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
     <title>SKB REALTECH : Find Your Property </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -219,42 +220,125 @@
             <!-- Types of Properties -->
             <h2 class="text-4xl text-[#765C2A] md:text-5xl font-normal text-center mb-12 reveal" >Types of Properties</h2>
             
-            <div class="scroll-container reveal-group">
-                <div class="text-center">
-                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/1.jpg');"></div>
-                    <p class="text-lg font-medium">Product</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-group">
+                <!-- Residential Card -->
+                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/1.jpg');">
+                        <!-- Size Indicator -->
+                        <div class="absolute top-4 left-4 bg-[#f6eee6] rounded-xl px-3 py-2 flex items-center space-x-2">
+                            <i class="fas fa-home text-[#765c2a] text-sm"></i>
+                            <span class="text-[#765c2a] font-medium text-sm">120m²</span>
+                        </div>
+                        
+                        <!-- Text Overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#765c2a] to-transparent p-6 rounded-b-3xl">
+                            <h3 class="text-white font-bold text-xl uppercase mb-3">Residential</h3>
+                            <p class="text-white text-xs opacity-90 leading-relaxed">
+                                <span class="short-text">Residential properties are real estate assets primarily used for living purposes...</span>
+                                <span class="full-text hidden">Residential properties are real estate assets primarily used for living purposes. These include homes, apartments, villas, townhouses, and other types of dwellings.</span>
+                            </p>
+                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="toggleReadMore(this)">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Button - Outside card -->
+                    <div class="absolute -bottom-2 -right-2">
+                        <button class="w-12 h-12 bg-gradient-to-br from-[#765c2a] to-[#523729] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200 shadow-lg">
+                            <i class="fa-solid fa-chevron-right text-white text-sm"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/2.jpg');"></div>
-                    <p class="text-lg font-medium">Product</p>
+
+                <!-- Commercial Card -->
+                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/2.jpg');">
+                        <!-- Size Indicator -->
+                        <div class="absolute top-4 left-4 bg-[#f6eee6] rounded-xl px-3 py-2 flex items-center space-x-2">
+                            <i class="fas fa-building text-[#765c2a] text-sm"></i>
+                            <span class="text-[#765c2a] font-medium text-sm">250m²</span>
+                        </div>
+                        
+                        <!-- Text Overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#765c2a] to-transparent p-6 rounded-b-3xl">
+                            <h3 class="text-white font-bold text-xl uppercase mb-3">Commercial</h3>
+                            <p class="text-white text-xs opacity-90 leading-relaxed">
+                                <span class="short-text">Unlike residential properties, commercial spaces are designed to support operations...</span>
+                                <span class="full-text hidden">Unlike residential properties, commercial spaces are designed to support operations like trading, manufacturing, or providing services. They are often located in high-footfall or strategic business areas and are evaluated based on ROI, lease potential, and infrastructure.</span>
+                            </p>
+                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="toggleReadMore(this)">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Button - Outside card -->
+                    <div class="absolute -bottom-2 -right-2">
+                        <button class="w-12 h-12 bg-gradient-to-br from-[#765c2a] to-[#523729] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200 shadow-lg">
+                            <i class="fa-solid fa-chevron-right text-white text-sm"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/3.jpg');"></div>
-                    <p class="text-lg font-medium">Product</p>
+
+                <!-- Industrial Card -->
+                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/3.jpg');">
+                        <!-- Size Indicator -->
+                        <div class="absolute top-4 left-4 bg-[#f6eee6] rounded-xl px-3 py-2 flex items-center space-x-2">
+                            <i class="fas fa-industry text-[#765c2a] text-sm"></i>
+                            <span class="text-[#765c2a] font-medium text-sm">400m²</span>
+                        </div>
+                        
+                        <!-- Text Overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#765c2a] to-transparent p-6 rounded-b-3xl">
+                            <h3 class="text-white font-bold text-xl uppercase mb-3">Industrial</h3>
+                            <p class="text-white text-xs opacity-90 leading-relaxed">
+                                <span class="short-text">Industrial properties are real estate assets used for manufacturing, production...</span>
+                                <span class="full-text hidden">Industrial properties are real estate assets used for manufacturing, production, storage, distribution, and logistics operations. These include factories, warehouses, distribution centers, cold storage units, and industrial parks.</span>
+                            </p>
+                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="toggleReadMore(this)">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Button - Outside card -->
+                    <div class="absolute -bottom-2 -right-2">
+                        <button class="w-12 h-12 bg-gradient-to-br from-[#765c2a] to-[#523729] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200 shadow-lg">
+                            <i class="fa-solid fa-chevron-right text-white text-sm"></i>
+                        </button>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/4.jpg');"></div>
-                    <p class="text-lg font-medium">Product</p>
-                </div>
-                <div class="text-center">
-                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/5.jpg');"></div>
-                    <p class="text-lg font-medium">Product</p>
-                </div>
-                <div class="text-center">
-                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/6.jpg');"></div>
-                    <p class="text-lg font-medium">Product</p>
-                </div>
-                <div class="text-center">
-                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/7.jpg');"></div>
-                    <p class="text-lg font-medium">Product</p>
-                </div>
-                <div class="text-center">
-                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/8.jpg');"></div>
-                    <p class="text-lg font-medium">Product</p>
-                </div>
-                <div class="text-center">
-                    <div class="product-img bg-cover bg-center mb-4" style="background-image: url('products/9.jpg');"></div>
-                    <p class="text-lg font-medium">Product</p>
+
+                <!-- Agricultural Card -->
+                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/4.jpg');">
+                        <!-- Size Indicator -->
+                        <div class="absolute top-4 left-4 bg-[#f6eee6] rounded-xl px-3 py-2 flex items-center space-x-2">
+                            <i class="fas fa-seedling text-[#765c2a] text-sm"></i>
+                            <span class="text-[#765c2a] font-medium text-sm">500m²</span>
+                        </div>
+                        
+                        <!-- Text Overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#765c2a] to-transparent p-6 rounded-b-3xl">
+                            <h3 class="text-white font-bold text-xl uppercase mb-3">Agricultural</h3>
+                            <p class="text-white text-xs opacity-90 leading-relaxed">
+                                <span class="short-text">We specialize in offering prime agricultural land for sale, ideal for farming...</span>
+                                <span class="full-text hidden">We specialize in offering prime agricultural land for sale, ideal for farming, investment, or future development. Our curated listings include fertile, well-located plots with clear titles and easy accessibility.</span>
+                            </p>
+                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="toggleReadMore(this)">
+                                Read More
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Button - Outside card -->
+                    <div class="absolute -bottom-2 -right-2">
+                        <button class="w-12 h-12 bg-gradient-to-br from-[#765c2a] to-[#523729] rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-200 shadow-lg">
+                            <i class="fa-solid fa-chevron-right text-white text-sm"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -405,6 +489,25 @@
 
         // Observe groups so children animate together when group enters
         document.querySelectorAll('.reveal-group').forEach(group => revealObserver.observe(group));
+
+        // Read More functionality
+        function toggleReadMore(button) {
+            const card = button.closest('.property-card');
+            const shortText = card.querySelector('.short-text');
+            const fullText = card.querySelector('.full-text');
+            
+            if (fullText.classList.contains('hidden')) {
+                // Show full text
+                shortText.classList.add('hidden');
+                fullText.classList.remove('hidden');
+                button.textContent = 'Read Less';
+            } else {
+                // Show short text
+                shortText.classList.remove('hidden');
+                fullText.classList.add('hidden');
+                button.textContent = 'Read More';
+            }
+        }
     </script>
 </body>
 </html>
