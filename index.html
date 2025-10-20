@@ -94,6 +94,177 @@
 
         /* Mobile horizontal scroll for services and reviews */
         @media (max-width: 768px) {
+            /* Mobile viewport optimization - fit all sections in one screen */
+            .mobile-compact-view {
+                height: 100vh;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            /* Hero section mobile optimization */
+            .mobile-compact-view .hero-bg {
+                min-height: 45vh !important;
+                height: 35vh;
+                flex-shrink: 0;
+            }
+            
+            /* Elitespaces section mobile optimization */
+            .mobile-compact-view .elitespaces-mobile {
+                padding: 0.2rem 0 !important;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            
+            .mobile-compact-view .elitespaces-mobile .service-icon {
+                padding: 0.2rem !important;
+                min-height: 30px !important;
+                border-radius: 4px !important;
+                margin-bottom: 0.1rem !important;
+            }
+            
+            .mobile-compact-view .elitespaces-mobile .service-icon p {
+                font-size: 0.5rem !important;
+                line-height: 1 !important;
+                white-space: nowrap !important;
+            }
+            
+            /* Services section mobile optimization - no scroll, fit in one line */
+            .mobile-compact-view .services-mobile {
+                padding: 0.2rem 0 !important;
+                flex: 1;
+                display: flex !important;
+                flex-direction: row !important;
+                gap: 0.3rem !important;
+                overflow: visible !important;
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+                justify-content: space-between !important;
+            }
+            
+            .mobile-compact-view .services-mobile .service-item {
+                flex: 1 !important;
+                width: auto !important;
+                max-width: none !important;
+                scroll-snap-align: none !important;
+                min-width: 0 !important;
+            }
+            
+            .mobile-compact-view .services-mobile .service-item .service-img {
+                height: 35px !important;
+                width: 100% !important;
+                margin-bottom: 0.1rem !important;
+            }
+            
+            .mobile-compact-view .services-mobile .service-item p {
+                font-size: 0.45rem !important;
+                line-height: 1 !important;
+                text-align: center !important;
+            }
+            
+            /* Hide Our Services heading in mobile compact view */
+            .mobile-compact-view h2 {
+                display: none !important;
+            }
+            
+            /* Mobile compact properties section */
+            @media (max-width: 768px) {
+                .property-card .property-bg {
+                    height: 200px !important;
+                }
+                
+                .property-card .absolute.bottom-0 {
+                    padding: 1rem !important;
+                }
+                
+                .property-card h3 {
+                    font-size: 1rem !important;
+                    margin-bottom: 0.5rem !important;
+                }
+                
+                .property-card p {
+                    font-size: 0.7rem !important;
+                    line-height: 1.2 !important;
+                }
+                
+                .property-card .read-more-btn {
+                    font-size: 0.6rem !important;
+                }
+                
+                .property-card .absolute.-bottom-2.-right-2 button {
+                    width: 2rem !important;
+                    height: 2rem !important;
+                }
+                
+                .property-card .absolute.-bottom-2.-right-2 button i {
+                    font-size: 0.6rem !important;
+                }
+                
+                /* Mobile compact reviews section */
+                .review-item {
+                    padding: 0.75rem !important;
+                }
+                
+                .review-item .w-10.h-10 {
+                    width: 1.5rem !important;
+                    height: 1.5rem !important;
+                }
+                
+                .review-item h4 {
+                    font-size: 0.75rem !important;
+                }
+                
+                .review-item p {
+                    font-size: 0.6rem !important;
+                }
+                
+                .review-item blockquote {
+                    font-size: 0.6rem !important;
+                    line-height: 1.2 !important;
+                }
+                
+                /* Mobile compact contact section */
+                .contact-section {
+                    padding: 1rem 0 !important;
+                }
+                
+                .contact-section h3 {
+                    font-size: 1.25rem !important;
+                    margin-bottom: 1rem !important;
+                }
+                
+                .contact-section .w-10.h-10 {
+                    width: 1.5rem !important;
+                    height: 1.5rem !important;
+                }
+                
+                .contact-section h4 {
+                    font-size: 0.875rem !important;
+                }
+                
+                .contact-section p {
+                    font-size: 0.75rem !important;
+                }
+                
+                .contact-section label {
+                    font-size: 0.875rem !important;
+                }
+                
+                .contact-section input,
+                .contact-section select,
+                .contact-section textarea {
+                    padding: 0.5rem !important;
+                    font-size: 0.75rem !important;
+                }
+                
+                .contact-section button {
+                    padding: 0.75rem 1.5rem !important;
+                    font-size: 0.875rem !important;
+                }
+            }
+            
             .services-scroll {
                 display: flex;
                 overflow-x: auto;
@@ -251,28 +422,30 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
-        <div class="max-w-7xl mx-auto px-6 py-20">
-            <div class="flex items-center justify-center space-x-12">   
+    <!-- Mobile Compact View Container -->
+    <div class="mobile-compact-view md:block">
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+            <div class="max-w-7xl mx-auto px-6 py-4 md:py-20">
+                <div class="flex items-center justify-center space-x-12">   
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Slogan -->
-    <section id="slogan" class="py-20 bg-white">
+        <!-- Slogan -->
+        <section id="slogan" class="py-20 bg-white elitespaces-mobile">
         <div class="max-w-7xl mx-auto px-6">
             
-            <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-6 mb-8 md:mb-20 reveal-group">
+            <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-2 md:gap-6 mb-2 md:mb-20 reveal-group">
                 <div class="text-center">
-                    <div class="service-icon mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
+                    <div class="service-icon mb-1 md:mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
                         <p class="text-xs md:text-lg font-medium">Elite Spaces</p>
                     </div>
                 </div>
 
                 <!-- Service 2 -->
                 <div class="text-center">
-                    <div class="service-icon mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
+                    <div class="service-icon mb-1 md:mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
                         <p class="text-xs md:text-lg font-medium">Trusted Deals</p>
                     </div>
                     
@@ -280,7 +453,7 @@
 
                 <!-- Service 3 -->
                 <div class="text-center">
-                    <div class="service-icon mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
+                    <div class="service-icon mb-1 md:mb-4 bg-[#F6EEE6] hover:text-white hover:bg-[#523729] transition">
                         <p class="text-xs md:text-lg font-medium">Unmatched Class</p>
                     </div>
                 </div>
@@ -310,28 +483,33 @@
                 </div>
             </div>
 
-            <!-- Mobile Horizontal Scroll -->
-            <div class="md:hidden services-scroll mb-20 reveal-group">
+            <!-- Mobile Horizontal Layout -->
+            <div class="md:hidden reveal-group services-mobile">
                 <div class="service-item text-center">
-                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-48 w-full mx-auto" style="background-image: url('services/site.jpg');"></div>
+                    <div class="service-img bg-contain bg-center bg-no-repeat h-48 w-full mx-auto" style="background-image: url('services/site.jpg');"></div>
                     <p class="text-base text-[#765C2A] font-medium">Site Visit</p>
                 </div>
                 <div class="service-item text-center">
-                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-48 w-full mx-auto" style="background-image: url('services/guide.jpg');"></div>
+                    <div class="service-img bg-contain bg-center bg-no-repeat h-48 w-full mx-auto" style="background-image: url('services/guide.jpg');"></div>
                     <p class="text-base text-[#765C2A] font-medium">Expert Guidance</p>
                 </div>
                 <div class="service-item text-center">
-                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-48 w-full mx-auto" style="background-image: url('services/legal.jpg');"></div>
+                    <div class="service-img bg-contain bg-center bg-no-repeat h-48 w-full mx-auto" style="background-image: url('services/legal.jpg');"></div>
                     <p class="text-base text-[#765C2A] font-medium">Legal Assistance</p>
                 </div>
                 <div class="service-item text-center">
-                    <div class="service-img bg-contain bg-center bg-no-repeat mb-4 h-48 w-full mx-auto" style="background-image: url('services/call.jpg');"></div>
+                    <div class="service-img bg-contain bg-center bg-no-repeat h-48 w-full mx-auto" style="background-image: url('services/call.jpg');"></div>
                     <p class="text-base text-[#765C2A] font-medium">Schedule a Call</p>
                 </div>
             </div>
+        </div>
+    </section>
+    </div>
 
-            <!-- Types of Properties -->
-            <h2 class="text-4xl text-[#765C2A] md:text-5xl font-normal text-center mb-12 reveal" >Types of Properties</h2>
+    <!-- Types of Properties -->
+    <section class="py-8 md:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl md:text-5xl text-[#765C2A] font-normal text-center mb-6 md:mb-12 reveal" >Types of Properties</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-group">
                 <!-- Residential Card -->
@@ -458,9 +636,9 @@
     </section>
 
     <!-- Reviews Section -->
-    <section class="py-20 bg-white">
+    <section class="py-8 md:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-4xl text-[#765C2A] md:text-5xl font-normal text-center mb-16 reveal">What Our Clients Say</h2>
+            <h2 class="text-3xl md:text-5xl text-[#765C2A] font-normal text-center mb-8 md:mb-16 reveal">What Our Clients Say</h2>
             
             <!-- Desktop Grid -->
             <div class="hidden md:grid grid-cols-2 gap-8 reveal-group">
@@ -585,7 +763,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-12 md:py-20 bg-[#f6eee6]">
+    <section id="contact" class="py-8 md:py-20 bg-[#f6eee6] contact-section">
         <div class="max-w-7xl mx-auto px-4 md:px-6">
             <!-- <h2 class="text-4xl text-[#765C2A] md:text-5xl font-normal text-center mb-16 reveal">Get in Touch</h2> -->
             
