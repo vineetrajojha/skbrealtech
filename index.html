@@ -96,26 +96,25 @@
         @media (max-width: 768px) {
             /* Mobile viewport optimization - fit all sections in one screen */
             .mobile-compact-view {
-                height: 100vh;
-                overflow: hidden;
+                min-height: 100vh;
                 display: flex;
                 flex-direction: column;
             }
             
             /* Hero section mobile optimization */
             .mobile-compact-view .hero-bg {
-                min-height: 40vh !important;
-                height: 30vh;
+                min-height: 45vh !important;
+                height: 45vh;
                 flex-shrink: 0;
             }
             
             /* Elitespaces section mobile optimization */
             .mobile-compact-view .elitespaces-mobile {
-                padding: 1rem 0 !important;
-                flex: 1.5;
+                padding: 2rem 0 !important;
+                flex: 2;
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
+                justify-content: space-between;
             }
             
             .mobile-compact-view .elitespaces-mobile .service-icon {
@@ -126,36 +125,36 @@
             }
             
             .mobile-compact-view .elitespaces-mobile .service-icon p {
-                font-size: 0.875rem !important;
+                font-size: 0.65rem !important;
                 line-height: 1.2 !important;
                 white-space: nowrap !important;
             }
             
-            /* Services section mobile optimization - no scroll, fit in one line */
+            /* Services section mobile optimization - 2x2 grid */
             .mobile-compact-view .services-mobile {
-                padding: 1rem 0 !important;
-                flex: 1.5;
-                display: flex !important;
-                flex-direction: row !important;
-                gap: 0.5rem !important;
+                padding: 2rem 0 !important;
+                flex: 2.5;
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-rows: repeat(2, auto) !important;
+                gap: 1.5rem !important;
                 overflow: visible !important;
-                padding-bottom: 0 !important;
-                margin-bottom: 0 !important;
-                justify-content: space-between !important;
+                padding-bottom: 1rem !important;
+                margin-bottom: 1rem !important;
             }
             
             .mobile-compact-view .services-mobile .service-item {
-                flex: 1 !important;
-                width: auto !important;
+                width: 100% !important;
                 max-width: none !important;
                 scroll-snap-align: none !important;
                 min-width: 0 !important;
             }
             
             .mobile-compact-view .services-mobile .service-item .service-img {
-                height: 70px !important;
+                height: 120px !important;
                 width: 100% !important;
-                margin-bottom: 0.5rem !important;
+                margin-bottom: 0.75rem !important;
+                border-radius: 12px !important;
             }
             
             .mobile-compact-view .services-mobile .service-item p {
@@ -164,9 +163,12 @@
                 text-align: center !important;
             }
             
-            /* Hide Our Services heading in mobile compact view */
+            /* Style for headings in mobile compact view */
             .mobile-compact-view h2 {
-                display: none !important;
+                font-size: 2rem !important;
+                margin-bottom: 1.5rem !important;
+                margin-top: 1.5rem !important;
+                padding: 0 1rem !important;
             }
             
             /* Mobile compact properties section */
@@ -387,10 +389,10 @@
                     <a href="#home" class="nav-link text-[#523729]">home</a>
                     <a href="about.html" class="nav-link text-[#523729]">about us</a>
                     <a href="career.html" class="nav-link text-[#523729]">career</a>
-                    <a href="#home" class="nav-link text-[#523729]">contact us</a>
-                    <a href="#showcase" class="nav-link text-[#523729]">properties</a>
-                    <a href="#services" class="nav-link text-[#523729]">maps</a>
-                    <a href="#services" class="nav-link text-[#523729]">social media</a>
+                    <a href="contact.html" class="nav-link text-[#523729]">contact us</a>
+                    <a href="properties.html" class="nav-link text-[#523729]">properties</a>
+                    <a href="maps.html" class="nav-link text-[#523729]">maps</a>
+                    <a href="socialmedia.html" class="nav-link text-[#523729]">social media</a>
                 </div>
 
                 <!-- Get in Touch Button -->
@@ -805,6 +807,13 @@
                                 <p class="text-gray-700 text-sm md:text-lg">SKB Realtech, Neelkanth Plaza<br>Alpha 1 Commerical Belt, Block E <br>Alpha 1, Greater Noida, Uttar Pradesh</p>
                             </div>
                         </div>
+                        <div class="rounded-xl overflow-hidden border border-[#f6eee6]">
+              <img src="map.png" alt="Office and map" class="w-full h-64 object-cover">
+            </div>
+
+            <div>
+              <a href="https://www.google.com/maps/place/S+K+B+RealTech/@28.4710507,77.511541,19z/data=!4m16!1m9!3m8!1s0x390ceb007396be55:0x4e6bb46c3a5023fd!2sS+K+B+RealTech!8m2!3d28.4710507!4d77.511541!9m1!1b1!16s%2Fg%2F11wj9k05m_!3m5!1s0x390ceb007396be55:0x4e6bb46c3a5023fd!8m2!3d28.4710507!4d77.511541!16s%2Fg%2F11wj9k05m_?hl=en-IN&entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D" class="bg-[#f6eee6] text-[#523729] px-6 py-3 rounded-full font-medium hover:text-white hover:bg-[#523729] transition"> <i class="fas fa-compass mr-2"></i>Navigate</a>
+            </div>
                     </div>
                 </div>
 

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="logo.png">
+    <title>SKB REALTECH : Maps & Master Plans</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Libre Caslon Text', serif;
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #666;
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .reveal-group > * {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            will-change: opacity, transform;
+        }
+        .reveal-group.visible > * {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#F6EEE6] text-[#523729]">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <img src="logo.png" alt="SKB REALTECH" class="w-10 h-10">
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[#523729]">home</a>
+                    <a href="about.html" class="nav-link text-[#523729]">about us</a>
+                    <a href="career.html" class="nav-link text-[#523729]">career</a>
+                    <a href="contact.html" class="nav-link text-[#523729]">contact us</a>
+                    <a href="properties.html" class="nav-link text-[#523729]">properties</a>
+                    <a href="maps.html" class="nav-link text-[#523729]">maps</a>
+                    <a href="#social-media" class="nav-link text-[#523729]">social media</a>
+                </div>
+
+                <!-- Get in Touch Button -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-white text-[#523729] px-8 py-3 rounded-full font-medium hover:text-white hover:bg-[#523729] transition">
+                        schedule a call
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-[#523729]">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-[#523729]">home</a>
+                <a href="about.html" class="block py-2 text-[#523729]">about us</a>
+                <a href="career.html" class="block py-2 text-[#523729]">career</a>
+                <a href="contact.html" class="block py-2 text-[#523729]">contact us</a>
+                <a href="properties.html" class="block py-2 text-[#523729]">properties</a>
+                <a href="maps.html" class="block py-2 text-[#523729]">maps</a>
+                <a href="#social-media" class="block py-2 text-[#523729]">social media</a>
+                <a href="#contact" class="block mt-4 bg-white text-[#523729] px-6 py-3 rounded-full text-center font-medium hover:text-white hover:bg-[#523729] transition">
+                    schedule a call
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+        <!-- Header Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl text-[#765C2A] font-normal text-center mb-6 reveal">Greater Noida</h1>
+                <p class="text-xl md:text-2xl text-[#523729] text-center max-w-3xl mx-auto reveal">
+                    Where Vision Meets Value, and Investment Builds the Future
+                </p>
+            </div>
+        </section>
+
+        <!-- Video and Description Section -->
+        <section class="py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center reveal-group">
+                    <div class="relative h-64 md:h-96">
+                        <img src="logo.png" alt="SKB Realtech" class="w-full h-full object-contain rounded-2xl">
+                    </div>
+                    <div>
+                        <p class="text-lg md:text-xl text-gray-700 leading-relaxed">
+                            Greater Noida is emerging as one of the most promising
+                            investment destinations for the future, driven by its well-
+                            planned infrastructure, strategic location, and government-
+                            backed development under the Greater Noida Master Plan
+                            2041.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Master Plans Section -->
+        <section class="py-16 md:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 reveal-group">
+                    <!-- Greater Noida Master Plan -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                        <img src="products/1.jpg" alt="Greater Noida Master Plan" class="w-full h-64 md:h-80 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl text-[#765C2A] font-semibold mb-4">Master Plan 2041 (Greater Noida)</h3>
+                            <a href="#" class="inline-block bg-[#765c2a] text-white px-6 py-3 rounded-full hover:bg-[#523729] transition-colors">
+                                View Plan
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- YEIDA Master Plan -->
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                        <img src="products/2.jpg" alt="YEIDA Master Plan" class="w-full h-64 md:h-80 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl text-[#765C2A] font-semibold mb-4">Master Plan 2041 (YEIDA)</h3>
+                            <a href="#" class="inline-block bg-[#765c2a] text-white px-6 py-3 rounded-full hover:bg-[#523729] transition-colors">
+                                View Plan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#F6EEE6] text-[#523729] py-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-6">
+                <!-- Logo -->
+                <div class="mb-4 md:mb-0">
+                    <img src="logo.png" alt="SKB Realtech Logo" class="h-20">
+                    <h1>@skbrealtech</h1>
+                </div>
+                
+                <!-- Social Icons -->
+                <div class="flex items-center space-x-6">
+                    <a href="https://instagram.com" target="_blank" class="text-[#523729] hover:text-[#765C2A] transition-colors">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/+918882327157" target="_blank" class="text-[#523729] hover:text-[#765C2A] transition-colors">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="text-[#523729] hover:text-[#765C2A] transition-colors">
+                        <i class="fab fa-facebook text-xl"></i>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="text-[#523729] hover:text-[#765C2A] transition-colors">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-400 text-sm">&copy; 2025 SKB Realtech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Reveal on scroll using IntersectionObserver
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -60px 0px'
+        };
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        // Observe individual reveal elements
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Observe groups so children animate together when group enters
+        document.querySelectorAll('.reveal-group').forEach(group => revealObserver.observe(group));
+    </script>
+</body>
+</html>
