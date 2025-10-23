@@ -70,48 +70,53 @@
 <body class="bg-white">
 
   <!-- Navbar -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#F6EEE6] text-[#523729] shadow-md">
-    <div class="max-w-7xl mx-auto px-6 py-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-2">
-          <img src="logo.png" alt="SKB REALTECH" class="w-10 h-10" />
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#F6EEE6] text-[#523729]">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <img src="logo.png" alt="SKB REALTECH" class="w-10 h-10"> 
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-[#523729]">home</a>
+                    <a href="about.html" class="nav-link text-[#523729]">about us</a>
+                    <a href="career.html" class="nav-link text-[#523729]">career</a>
+                    <a href="contact.html" class="nav-link text-[#523729]">contact us</a>
+                    <a href="properties.html" class="nav-link text-[#523729]">properties</a>
+                    <a href="maps.html" class="nav-link text-[#523729]">maps</a>
+                    <a href="socialmedia.html" class="nav-link text-[#523729]">social media</a>
+                </div>
+
+                <!-- Get in Touch Button -->
+                <div class="hidden md:block">
+                    <a href="#contact" class="bg-white text-[#523729] px-8 py-3 rounded-full font-medium hover:text-white hover:bg-[#523729] transition">
+                        schedule a call
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-[#523729]">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-[#523729]">home</a>
+                <a href="about.html" class="block py-2 text-[#523729]">about us</a>
+                <a href="career.html" class="block py-2 text-[#523729]">career</a>
+                <a href="contact.html" class="block py-2 text-[#523729]">contact us</a>
+                <a href="properties.html" class="block py-2 text-[#523729]">properties</a>
+                <a href="maps.html" class="block py-2 text-[#523729]">maps</a>
+                <a href="socialmedia.html" class="block py-2 text-[#523729]">social media</a>
+                <a href="#contact" class="block mt-4 bg-white text-[#523729] px-6 py-3 rounded-full text-center font-medium hover:text-white hover:bg-[#523729] transition">
+                    schedule a call
+                </a>
+            </div>
         </div>
-
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="nav-link text-[#523729]">home</a>
-          <a href="about.html" class="nav-link text-[#523729]">about us</a>
-          <a href="career.html" class="nav-link text-[#523729] ">career</a>
-          <a href="#contact" class="nav-link text-[#523729]">contact us</a>
-          <a href="#showcase" class="nav-link text-[#523729]">properties</a>
-          <a href="#maps" class="nav-link text-[#523729]">maps</a>
-          <a href="#social" class="nav-link text-[#523729]">social media</a>
-        </div>
-
-        <div class="hidden md:block">
-          <a href="#contact" class="bg-white text-[#523729] px-8 py-3 rounded-full font-medium hover:text-white hover:bg-[#523729] transition">
-            schedule a call
-          </a>
-        </div>
-
-        <button id="mobile-menu-btn" class="md:hidden text-[#523729]">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </div>
-
-      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-        <a href="index.html" class="block py-2 text-[#523729]">home</a>
-        <a href="about.html" class="block py-2 text-[#523729]">about us</a>
-        <a href="career.html" class="block py-2 text-[#523729] ">career</a>
-        <a href="#contact" class="block py-2 text-[#523729]">contact us</a>
-        <a href="#showcase" class="block py-2 text-[#523729]">properties</a>
-        <a href="#maps" class="block py-2 text-[#523729]">maps</a>
-        <a href="#social" class="block py-2 text-[#523729]">social media</a>
-        <a href="#contact" class="block mt-4 bg-white text-[#523729] px-6 py-3 rounded-full text-center font-medium hover:text-white hover:bg-[#523729] transition">
-          schedule a call
-        </a>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
   <!-- Career Section -->
   <!-- <section class="pt-36 pb-16 bg-white">
