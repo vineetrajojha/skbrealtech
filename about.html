@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <title>About SKB REALTECH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    * {
+      font-family: "Libre Caslon Text", serif;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s, transform 0.6s;
+    }
+
+    .reveal-group {
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    .reveal-group > * {
+      transform: translateY(30px);
+      transition: transform 0.6s;
+    }
+
+    .visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .visible > * {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#F6EEE6] text-[#523729] shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2">
+          <img src="logo.png" alt="SKB REALTECH" class="w-10 h-10" />
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-[#523729]">home</a>
+          <a href="about.html" class="nav-link text-[#523729]">about us</a>
+          <a href="#services" class="nav-link text-[#523729]">career</a>
+          <a href="#home" class="nav-link text-[#523729]">contact us</a>
+          <a href="#showcase" class="nav-link text-[#523729]">properties</a>
+          <a href="#services" class="nav-link text-[#523729]">maps</a>
+          <a href="#services" class="nav-link text-[#523729]">social media</a>
+        </div>
+
+        <!-- Get in Touch Button -->
+        <div class="hidden md:block">
+          <a
+            href="#contact"
+            class="bg-white text-[#523729] px-8 py-3 rounded-full font-medium hover:text-white hover:bg-[#523729] transition"
+          >
+            schedule a call
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-[#523729]">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+        <a href="index.html" class="block py-2 text-[#523729]">home</a>
+        <a href="about.html" class="block py-2 text-[#523729]">about us</a>
+        <a href="#services" class="block py-2 text-[#523729]">career</a>
+        <a href="#contact" class="block py-2 text-[#523729]">contact us</a>
+        <a href="#showcase" class="block py-2 text-[#523729]">properties</a>
+        <a href="#services" class="block py-2 text-[#523729]">maps</a>
+        <a href="#services" class="block py-2 text-[#523729]">social media</a>
+        <a
+          href="#contact"
+          class="block mt-4 bg-white text-[#523729] px-6 py-3 rounded-full text-center font-medium hover:text-white hover:bg-[#523729] transition"
+        >
+          schedule a call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section class="pt-44 pb-16 bg-white">  <!-- increased top padding -->
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl md:text-5xl text-[#765C2A] font-normal text-center mb-16 reveal">About Us</h2>
+      
+      <!-- Team Members -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 reveal-group">
+        <div class="flex flex-col items-center">
+          <div class="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden mb-6 border-4 border-[#F6EEE6] bg-[#765C2A] flex items-center justify-center">
+            <i class="fas fa-user text-white text-6xl"></i>
+          </div>
+          <h3 class="text-2xl text-[#765C2A] font-semibold mb-2">Ashok Aggarwal</h3>
+          <p class="text-gray-600 text-lg mb-4">Director</p>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <div class="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden mb-6 border-4 border-[#F6EEE6] bg-[#765C2A] flex items-center justify-center">
+            <i class="fas fa-user text-white text-6xl"></i>
+          </div>
+          <h3 class="text-2xl text-[#765C2A] font-semibold mb-2">Yash Aggarwal</h3>
+          <p class="text-gray-600 text-lg mb-4">Founder</p>
+        </div>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6 text-gray-700 text-lg leading-relaxed mb-20 reveal">
+        <p>At SKB REALTECH we don't just sell plots — we craft legacies. With a focus on high-end, strategically located commercial and residential properties, we specialize in connecting discerning buyers with exclusive real estate opportunities. Every listing we offer is a promise of quality, trust, and long-term value.</p>
+        <p>Backed by years of experience in the premium real estate market, our team combines deep industry insight with a personalized approach. We take pride in our transparent dealings, timely project delivery, and an uncompromising commitment to customer satisfaction.</p>
+        <p>Our vision is simple — to elevate your lifestyle with properties that stand out for their location, luxury, and lasting impact. Whether you're looking to invest, build your dream home, or expand your commercial footprint, we are here to make that journey seamless and rewarding.</p>
+      </div>
+
+      <!-- Why Choose Us Section -->
+      <div class="bg-[#F6EEE6] py-16 px-6 rounded-2xl reveal">
+        <h2 class="text-4xl md:text-5xl text-[#765C2A] font-normal text-center mb-16">Why Choose Us</h2>
+        <p class="text-gray-700 text-lg text-center max-w-3xl mx-auto mb-16">
+          SKB Real Tech is committed to transparent, fair dealings backed by years of industry experience. Our expert team prioritizes your needs, delivering personalized service to ensure confident and successful property investments.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal-group">
+          <div class="text-center">
+            <div class="w-24 h-24 mx-auto mb-6 bg-[#765C2A] rounded-full flex items-center justify-center">
+              <i class="fas fa-user-heart text-white text-3xl"></i>
+            </div>
+            <h3 class="text-xl text-[#765C2A] font-semibold mb-3">1. Customer First</h3>
+            <p class="text-gray-700">Personalized service focused on your satisfaction and goals.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-24 h-24 mx-auto mb-6 bg-[#765C2A] rounded-full flex items-center justify-center">
+              <i class="fas fa-handshake text-white text-3xl"></i>
+            </div>
+            <h3 class="text-xl text-[#765C2A] font-semibold mb-3">2. Transparent Deals</h3>
+            <p class="text-gray-700">No hidden charges, complete honesty at every step.</p>
+          </div>
+
+          <div class="text-center">
+            <div class="w-24 h-24 mx-auto mb-6 bg-[#765C2A] rounded-full flex items-center justify-center">
+              <i class="fas fa-certificate text-white text-3xl"></i>
+            </div>
+            <h3 class="text-xl text-[#765C2A] font-semibold mb-3">3. Trusted Expertise</h3>
+            <p class="text-gray-700">Years of experience guiding you to the best investment.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#F6EEE6] text-[#523729] py-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between mb-6">
+        <div class="mb-4 md:mb-0">
+          <img src="logo.png" alt="SKB Realtech Logo" class="h-20" />
+          <h1>@skbrealtech</h1>
+        </div>
+        <div class="flex items-center space-x-6">
+          <a href="https://instagram.com" target="_blank" class="text-[#523729] hover:text-[#765C2A] transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+          <a href="https://wa.me/+918882327157" target="_blank" class="text-[#523729] hover:text-[#765C2A] transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+          <a href="https://facebook.com" target="_blank" class="text-[#523729] hover:text-[#765C2A] transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+          <a href="https://linkedin.com" target="_blank" class="text-[#523729] hover:text-[#765C2A] transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="text-gray-400 text-sm">&copy; 2025 SKB Realtech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal animations
+    const reveals = document.querySelectorAll(".reveal, .reveal-group");
+    const onScroll = () => {
+      for (const el of reveals) {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      }
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+
+    // Mobile Menu toggle
+    document.getElementById("mobile-menu-btn").addEventListener("click", () => {
+      document.getElementById("mobile-menu").classList.toggle("hidden");
+    });
+  </script>
+
+</body>
+</html>

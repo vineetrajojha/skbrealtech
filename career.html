@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="logo.png" />
+  <title>Career - SKB REALTECH</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    * {
+      font-family: 'Libre Caslon Text', serif;
+    }
+
+    .nav-link {
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: #666;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .reveal-group > * {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      will-change: opacity, transform;
+    }
+
+    .reveal-group.visible > * {
+      opacity: 1;
+      transform: none;
+    }
+
+    .job-card {
+      transition: all 0.3s ease;
+    }
+
+    .job-card:hover {
+      transform: translateY(-5px);
+    }
+
+    @media (max-width: 768px) {
+      .job-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#F6EEE6] text-[#523729] shadow-md">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <img src="logo.png" alt="SKB REALTECH" class="w-10 h-10" />
+        </div>
+
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link text-[#523729]">home</a>
+          <a href="about.html" class="nav-link text-[#523729]">about us</a>
+          <a href="career.html" class="nav-link text-[#523729] ">career</a>
+          <a href="#contact" class="nav-link text-[#523729]">contact us</a>
+          <a href="#showcase" class="nav-link text-[#523729]">properties</a>
+          <a href="#maps" class="nav-link text-[#523729]">maps</a>
+          <a href="#social" class="nav-link text-[#523729]">social media</a>
+        </div>
+
+        <div class="hidden md:block">
+          <a href="#contact" class="bg-white text-[#523729] px-8 py-3 rounded-full font-medium hover:text-white hover:bg-[#523729] transition">
+            schedule a call
+          </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="md:hidden text-[#523729]">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+        <a href="index.html" class="block py-2 text-[#523729]">home</a>
+        <a href="about.html" class="block py-2 text-[#523729]">about us</a>
+        <a href="career.html" class="block py-2 text-[#523729] ">career</a>
+        <a href="#contact" class="block py-2 text-[#523729]">contact us</a>
+        <a href="#showcase" class="block py-2 text-[#523729]">properties</a>
+        <a href="#maps" class="block py-2 text-[#523729]">maps</a>
+        <a href="#social" class="block py-2 text-[#523729]">social media</a>
+        <a href="#contact" class="block mt-4 bg-white text-[#523729] px-6 py-3 rounded-full text-center font-medium hover:text-white hover:bg-[#523729] transition">
+          schedule a call
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Career Section -->
+  <!-- <section class="pt-36 pb-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h1 class="text-4xl md:text-6xl text-[#765C2A] font-normal text-center mb-6 reveal">Career</h1>
+      <p class="text-xl md:text-2xl text-[#523729] text-center max-w-3xl mx-auto reveal">
+        Tremendous Opportunity to grow and make impact
+      </p>
+    </div>
+  </section> -->
+
+  <!-- Current Job Openings -->
+  <section class="py-16 pt-36 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl text-[#765C2A] font-normal text-center mb-12 reveal">
+        Current Job Openings
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 reveal-group">
+        <!-- Video Editor -->
+        <div class="job-card bg-[#F6EEE6] rounded-2xl overflow-hidden shadow-lg">
+          <div class="aspect-square bg-cover bg-center" style="background-image: url('video.png')"></div>
+          <div class="p-6">
+            <h3 class="text-2xl text-[#765C2A] font-semibold mb-4">Video Editor</h3>
+            <p class="text-[#523729] leading-relaxed">
+              A Video Editor is responsible for assembling raw footage into a polished, engaging final product that aligns with a brand's or project's vision.
+            </p>
+            <a href="#contact" class="inline-block mt-6 bg-[#765C2A] text-white px-6 py-3 rounded-full hover:bg-[#523729] transition">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Content Creator -->
+        <div class="job-card bg-[#F6EEE6] rounded-2xl overflow-hidden shadow-lg">
+          <div class="aspect-square bg-cover bg-center" style="background-image: url('contentcreators.png')"></div>
+          <div class="p-6">
+            <h3 class="text-2xl text-[#765C2A] font-semibold mb-4">Content Creator</h3>
+            <p class="text-[#523729] leading-relaxed">
+              Develops engaging property listings, blogs, and social media posts to attract potential buyers. Collaborates with marketing teams to create visually appealing and informative content.
+            </p>
+            <a href="#contact" class="inline-block mt-6 bg-[#765C2A] text-white px-6 py-3 rounded-full hover:bg-[#523729] transition">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Site Visit Executive -->
+        <div class="job-card bg-[#F6EEE6] rounded-2xl overflow-hidden shadow-lg">
+          <div class="aspect-square bg-cover bg-center" style="background-image: url('siteexecutive.png')"></div>
+          <div class="p-6">
+            <h3 class="text-2xl text-[#765C2A] font-semibold mb-4">Site Visit Executive</h3>
+            <p class="text-[#523729] leading-relaxed">
+              Coordinates and conducts property site visits for prospective clients. Explains property features, amenities, and investment potential during tours.
+            </p>
+            <a href="#contact" class="inline-block mt-6 bg-[#765C2A] text-white px-6 py-3 rounded-full hover:bg-[#523729] transition">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Lead Generation -->
+        <div class="job-card bg-[#F6EEE6] rounded-2xl overflow-hidden shadow-lg">
+          <div class="aspect-square bg-cover bg-center" style="background-image: url('leadgens.png')"></div>
+          <div class="p-6">
+            <h3 class="text-2xl text-[#765C2A] font-semibold mb-4">Lead Generation</h3>
+            <p class="text-[#523729] leading-relaxed">
+              Identifies and qualifies potential clients through digital and offline campaigns. Maintains a database of leads and follows up to convert interest into bookings.
+            </p>
+            <a href="#contact" class="inline-block mt-6 bg-[#765C2A] text-white px-6 py-3 rounded-full hover:bg-[#523729] transition">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Culture Section -->
+  <section class="py-16 bg-[#F6EEE6]">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl text-[#765C2A] font-normal text-center mb-12 reveal">
+        Our Work Culture
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center reveal-group">
+        <div class="rounded-2xl overflow-hidden">
+          <img src="workculture.png" alt="Work Culture at SKB" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="bg-white rounded-2xl p-8">
+          <h3 class="text-2xl text-[#765C2A] font-semibold mb-6">Employee Advantages</h3>
+          <div class="text-[#523729] space-y-4">
+            <p class="leading-relaxed">
+              At SKB, you are empowered to take your career where you want it to go. Enjoy workplace flexibility in an inclusive, collaborative environment with supportive teammates.
+            </p>
+            <p class="leading-relaxed">
+              We believe in a culture that thrives on integrity, collaboration, and continuous growth. Our team is driven by passion for excellence in every interaction.
+            </p>
+            <p class="leading-relaxed">
+              We foster a transparent and supportive environment where innovation is encouraged, achievements are celebrated, and every voice is valued.
+            </p>
+          </div>
+          <a href="#" class="inline-block mt-8 bg-[#765C2A] text-white px-6 py-3 rounded-full hover:bg-[#523729] transition">View More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#F6EEE6] text-[#523729] py-8">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between mb-6">
+        <div class="mb-4 md:mb-0 text-center md:text-left">
+          <img src="logo.png" alt="SKB Realtech Logo" class="h-20 mx-auto md:mx-0" />
+          <h1>@skbrealtech</h1>
+        </div>
+        <div class="flex items-center space-x-6">
+          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram text-xl hover:text-[#765C2A]"></i></a>
+          <a href="https://wa.me/+918882327157" target="_blank"><i class="fab fa-whatsapp text-xl hover:text-[#765C2A]"></i></a>
+          <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook text-xl hover:text-[#765C2A]"></i></a>
+          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin text-xl hover:text-[#765C2A]"></i></a>
+        </div>
+      </div>
+      <div class="text-center">
+        <p class="text-gray-400 text-sm">&copy; 2025 SKB Realtech. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS for animation & mobile menu -->
+  <script>
+    // Reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal, .reveal-group').forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
