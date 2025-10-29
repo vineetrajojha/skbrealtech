@@ -18,15 +18,22 @@
     <style>
         .hero-bg {
             background: url('hero.png');
-            background-size: cover;
+            background-size: contain;
             background-position: center;
+            background-repeat: no-repeat;
+            background-color: #F6EEE6;
         }
 
         @media (max-width: 768px) {
             .hero-bg {
                 background: url('mobhero.png');
-                background-size: cover;
+                background-size: contain;
                 background-position: center;
+                background-repeat: no-repeat;
+                background-color: #F6EEE6;
+                min-height: auto !important;
+                padding-top: 56.25%; /* This maintains a 16:9 aspect ratio */
+                height: auto !important;
             }
         }
 
@@ -91,7 +98,18 @@
             background: #555;
             visibility: hidden;
         }
-
+        @media (max-width: 480px) {
+            .hero-bg{
+            background: url('hero.png');
+            background-size:contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #523729;
+            margin-top: 15px;
+            margin-bottom: -40px;
+            }
+        
+        }
         /* Mobile horizontal scroll for services and reviews */
         @media (max-width: 768px) {
             /* Mobile viewport optimization - fit all sections in one screen */
@@ -1044,17 +1062,15 @@
             });
         }
 
-        // Initialize auto-scroll for both sections on mobile
+        // Initialize auto-scroll for services section only on mobile
         if (window.innerWidth <= 768) {
             createAutoScroll('.services-scroll', '.service-item');
-            createAutoScroll('.reviews-scroll', '.review-item');
         }
 
         // Re-initialize on window resize
         window.addEventListener('resize', () => {
             if (window.innerWidth <= 768) {
                 createAutoScroll('.services-scroll', '.service-item');
-                createAutoScroll('.reviews-scroll', '.review-item');
             }
         });
     </script>
