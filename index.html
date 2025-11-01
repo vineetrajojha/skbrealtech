@@ -390,6 +390,37 @@
             opacity: 1;
             transform: none;
         }
+        /* Ensure property images show full image (no crop/stretched) on mobile
+           Strategy: show a real <img> on mobile (md:hidden on desktop) so the
+           image dictates the card height (no extra padding). For desktop we
+           continue to use the background-image + bg-cover behavior. */
+        @media (max-width: 768px) {
+            /* Let the container size itself to the image (no forced padding) */
+            .property-card .property-bg {
+                background-size: contain !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                height: auto !important;
+                padding-top: 0 !important;
+            }
+
+            /* The mobile-only <img> inside .property-bg will set the height */
+            .property-card .property-bg img.mobile-prop-img {
+                display: block !important;
+                width: 100% !important;
+                height: auto !important;
+                object-fit: contain !important;
+                border-radius: 1rem !important; /* match rounded-3xl */
+            }
+
+            /* Keep the overlay positioned at the bottom of the card */
+            .property-card .absolute.bottom-0 {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -534,7 +565,9 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-group">
                 <!-- Residential Card -->
                 <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/1.jpg');">
+            <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/1.jpg');">
+                <!-- Mobile: show image element so card height equals image height -->
+                <img src="products/1.jpg" alt="Residential property" class="mobile-prop-img block md:hidden">
                         <!-- Size Indicator -->
                         <div class="absolute top-4 left-4 bg-[#f6eee6] rounded-xl px-3 py-2 flex items-center space-x-2">
                             <i class="fas fa-home text-[#765c2a] text-sm"></i>
@@ -564,7 +597,9 @@
 
                 <!-- Commercial Card -->
                 <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/2.jpg');">
+            <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/2.jpg');">
+                <!-- Mobile: show image element so card height equals image height -->
+                <img src="products/2.jpg" alt="Commercial property" class="mobile-prop-img block md:hidden">
                         <!-- Size Indicator -->
                         <div class="absolute top-4 left-4 bg-[#f6eee6] rounded-xl px-3 py-2 flex items-center space-x-2">
                             <i class="fas fa-building text-[#765c2a] text-sm"></i>
@@ -594,7 +629,9 @@
 
                 <!-- Industrial Card -->
                 <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/3.jpg');">
+            <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/3.jpg');">
+                <!-- Mobile: show image element so card height equals image height -->
+                <img src="products/3.jpg" alt="Industrial property" class="mobile-prop-img block md:hidden">
                         <!-- Size Indicator -->
                         <div class="absolute top-4 left-4 bg-[#f6eee6] rounded-xl px-3 py-2 flex items-center space-x-2">
                             <i class="fas fa-industry text-[#765c2a] text-sm"></i>
@@ -624,7 +661,9 @@
 
                 <!-- Agricultural Card -->
                 <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/4.jpg');">
+            <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/4.jpg');">
+                <!-- Mobile: show image element so card height equals image height -->
+                <img src="products/4.jpg" alt="Agricultural property" class="mobile-prop-img block md:hidden">
                         <!-- Size Indicator -->
                         <div class="absolute top-4 left-4 bg-[#f6eee6] rounded-xl px-3 py-2 flex items-center space-x-2">
                             <i class="fas fa-seedling text-[#765c2a] text-sm"></i>
