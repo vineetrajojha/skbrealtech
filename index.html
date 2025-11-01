@@ -17,23 +17,113 @@
 </style>
     <style>
         .hero-bg {
-            background: url('hero.png');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #F6EEE6;
+            background-color: white;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .hero-text-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
+            flex: 0 0 58%;
+        }
+
+        .hero-image-container {
+            flex: 0 0 38%;
+        }
+
+        .hero-text-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-title {
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #765c2a;
+            margin: 0;
+        }
+
+        .hero-title-bottom {
+            font-size: 6rem;
+            font-weight: 700;
+            line-height: 1;
+            color: #765c2a;
+            margin: 0;
+        }
+
+        .hero-tagline {
+            font-size: 2rem;
+            font-style: italic;
+            color: #000000;
+            margin-top: 0.5rem;
+        }
+
+        .hero-bar {
+            width: 0.5rem;
+            height: 250px;
+            background-color: #765c2a;
+            border-radius: 10px;
+            flex-shrink: 0;
         }
 
         @media (max-width: 768px) {
-            .hero-bg {
-                background: url('mobhero.png');
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-color: #F6EEE6;
-                min-height: auto !important;
-                padding-top: 56.25%; /* This maintains a 16:9 aspect ratio */
-                height: auto !important;
+            .hero-text-container {
+                flex: 0 0 30%;
+            }
+            
+            .hero-image-container {
+                flex: 0 0 65%;
+            }
+            
+            .hero-title, .hero-title-bottom {
+                font-size: 2rem;
+            }
+            
+            .hero-tagline {
+                font-size: 0.875rem;
+            }
+            
+            .hero-bar {
+                height: 100px;
+                width: 0.4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text-container {
+                flex: 0 0 30%;
+            }
+            
+            .hero-image-container {
+                flex: 0 0 65%;
+            }
+            
+            .hero-title, .hero-title-bottom {
+                font-size: 1.5rem;
+            }
+            
+            .hero-tagline {
+                font-size: 0.75rem;
+            }
+            
+            .hero-bar {
+                height: 80px;
+                width: 0.3rem;
             }
         }
 
@@ -99,16 +189,9 @@
             visibility: hidden;
         }
         @media (max-width: 480px) {
-            .hero-bg{
-            background: url('hero.png');
-            background-size:contain;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-color: #523729;
-            margin-top: 15px;
-            margin-bottom: -40px;
+            .hero-bg {
+                background-color: white;
             }
-        
         }
         /* Mobile horizontal scroll for services and reviews */
         @media (max-width: 768px) {
@@ -121,8 +204,6 @@
             
             /* Hero section mobile optimization */
             .mobile-compact-view .hero-bg {
-                min-height: 45vh !important;
-                height: 45vh;
                 flex-shrink: 0;
             }
             
@@ -476,9 +557,22 @@
     <!-- Mobile Compact View Container -->
     <div class="mobile-compact-view md:block">
         <!-- Hero Section -->
-        <section id="home" class="hero-bg min-h-screen flex items-center pt-20">
+        <section id="home" class="hero-bg pt-20">
             <div class="max-w-7xl mx-auto px-6 py-4 md:py-20">
-                <div class="flex items-center justify-center space-x-12">   
+                <div class="hero-content">
+                    <!-- Left Side - Text and Bar -->
+                    <div class="hero-text-container">
+                        <div class="hero-text-wrapper">
+                            <h1 class="hero-title">SKB</h1>
+                            <h1 class="hero-title-bottom">REALITY</h1>
+                            <p class="hero-tagline">name of trust</p>
+                        </div>
+                        <div class="hero-bar"></div>
+                    </div>
+                    <!-- Right Side - Illustration -->
+                    <div class="hero-image-container">
+                        <img src="hero.png" alt="SKB RealTech Hero" class="hero-image">
+                    </div>
                 </div>
             </div>
         </section>
