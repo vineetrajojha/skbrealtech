@@ -654,11 +654,16 @@
     <!-- Types of Properties -->
     <section class="py-8 md:py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl text-[#765C2A] font-normal text-center mb-6 md:mb-12 reveal" >Types of Properties</h2>
-            
+            <h2 class="text-3xl md:text-5xl text-[#765C2A] font-normal text-center mb-6 md:mb-4 reveal" >Types of Properties</h2>
+            <div class="text-center mb-8 md:mb-12">
+                <a href="properties.html" class="inline-block bg-[#765c2a] text-white px-6 py-3 rounded-full font-medium hover:bg-[#523729] transition" aria-label="View all properties">
+                    View All Properties
+                </a>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 reveal-group">
                 <!-- Residential Card -->
-                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer" role="link" tabindex="0" onclick="window.location.href='properties.html'" onkeypress="if(event.key==='Enter'){window.location.href='properties.html'}">
             <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/1.jpg');">
                 <!-- Mobile: show image element so card height equals image height -->
                 <img src="products/1.jpg" alt="Residential property" class="mobile-prop-img block md:hidden">
@@ -675,7 +680,7 @@
                                 <span class="short-text">Residential properties are real estate assets primarily used for living purposes...</span>
                                 <span class="full-text hidden">Residential properties are real estate assets primarily used for living purposes. These include homes, apartments, villas, townhouses, and other types of dwellings.</span>
                             </p>
-                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="toggleReadMore(this)">
+                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="event.stopPropagation(); toggleReadMore(this)">
                                 Read More
                             </button>
                         </div>
@@ -690,7 +695,7 @@
                 </div>
 
                 <!-- Commercial Card -->
-                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer" role="link" tabindex="0" onclick="window.location.href='properties.html'" onkeypress="if(event.key==='Enter'){window.location.href='properties.html'}">
             <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/2.jpg');">
                 <!-- Mobile: show image element so card height equals image height -->
                 <img src="products/2.jpg" alt="Commercial property" class="mobile-prop-img block md:hidden">
@@ -707,7 +712,7 @@
                                 <span class="short-text">Unlike residential properties, commercial spaces are designed to support operations...</span>
                                 <span class="full-text hidden">Unlike residential properties, commercial spaces are designed to support operations like trading, manufacturing, or providing services. They are often located in high-footfall or strategic business areas and are evaluated based on ROI, lease potential, and infrastructure.</span>
                             </p>
-                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="toggleReadMore(this)">
+                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="event.stopPropagation(); toggleReadMore(this)">
                                 Read More
                             </button>
                         </div>
@@ -722,7 +727,7 @@
                 </div>
 
                 <!-- Industrial Card -->
-                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer" role="link" tabindex="0" onclick="window.location.href='properties.html'" onkeypress="if(event.key==='Enter'){window.location.href='properties.html'}">
             <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/3.jpg');">
                 <!-- Mobile: show image element so card height equals image height -->
                 <img src="products/3.jpg" alt="Industrial property" class="mobile-prop-img block md:hidden">
@@ -739,7 +744,7 @@
                                 <span class="short-text">Industrial properties are real estate assets used for manufacturing, production...</span>
                                 <span class="full-text hidden">Industrial properties are real estate assets used for manufacturing, production, storage, distribution, and logistics operations. These include factories, warehouses, distribution centers, cold storage units, and industrial parks.</span>
                             </p>
-                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="toggleReadMore(this)">
+                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="event.stopPropagation(); toggleReadMore(this)">
                                 Read More
                             </button>
                         </div>
@@ -754,7 +759,7 @@
                 </div>
 
                 <!-- Agricultural Card -->
-                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="property-card relative rounded-3xl overflow-visible shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer" role="link" tabindex="0" onclick="window.location.href='properties.html'" onkeypress="if(event.key==='Enter'){window.location.href='properties.html'}">
             <div class="property-bg h-96 bg-cover bg-center rounded-3xl" style="background-image: url('products/4.jpg');">
                 <!-- Mobile: show image element so card height equals image height -->
                 <img src="products/4.jpg" alt="Agricultural property" class="mobile-prop-img block md:hidden">
@@ -771,7 +776,7 @@
                                 <span class="short-text">We specialize in offering prime agricultural land for sale, ideal for farming...</span>
                                 <span class="full-text hidden">We specialize in offering prime agricultural land for sale, ideal for farming, investment, or future development. Our curated listings include fertile, well-located plots with clear titles and easy accessibility.</span>
                             </p>
-                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="toggleReadMore(this)">
+                            <button class="read-more-btn text-white text-xs underline mt-2 hover:opacity-80 transition-opacity" onclick="event.stopPropagation(); toggleReadMore(this)">
                                 Read More
                             </button>
                         </div>
