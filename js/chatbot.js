@@ -6,6 +6,67 @@ document.addEventListener('DOMContentLoaded', () => {
     // State
     let isOpen = false;
     let messages = [];
+    let currentStep = 0;
+    let leadData = {};
+
+    // Guided Questions Flow
+    const steps = [
+        {
+            id: 'location',
+            message: "Which location or area are you interested in? (City, Neighbourhood, Locality)",
+            field: 'location_preference'
+        },
+        {
+            id: 'intent',
+            message: "Are you looking to buy, rent, or invest?",
+            field: 'intent',
+            options: ["Buy", "Rent", "Invest"]
+        },
+        {
+            id: 'budget',
+            message: "What’s your budget range?",
+            field: 'budget'
+        },
+        {
+            id: 'property_type',
+            message: "What type of property are you looking for?",
+            field: 'property_type',
+            options: ["Apartment", "Flat", "Villa", "Independent House", "Studio Home", "Commercial"]
+        },
+        {
+            id: 'bedrooms',
+            message: "How many bedrooms do you prefer?",
+            field: 'bedrooms',
+            options: ["1 BHK", "2 BHK", "3 BHK", "4+ BHK"]
+        },
+        {
+            id: 'special_preferences',
+            message: "Any special preferences? (e.g., Pet-friendly, Gated community, Near metro)",
+            field: 'special_preferences'
+        },
+        {
+            id: 'move_in',
+            message: "What is your preferred move-in timeline?",
+            field: 'move_in_timeline',
+            options: ["Immediately", "In 1–2 months", "Planning ahead"]
+        },
+        {
+            id: 'builders',
+            message: "Do you have any specific builders or projects in mind?",
+            field: 'preferred_builders'
+        },
+        {
+            id: 'visit',
+            message: "How soon would you like to schedule a property visit?",
+            field: 'visit_timeline',
+            options: ["ASAP", "This Weekend", "Next Week", "Later"]
+        },
+        {
+            id: 'contact',
+            message: "Can I get your name & number so our expert can assist you better?",
+            field: 'contact_details'
+        }
+    ];
 
     // Create Widget HTML
     const widgetHTML = `
@@ -21,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Messages will appear here -->
             </div>
             <div class="chatbot-suggestions" id="chatbot-suggestions">
-                <!-- Suggestions will appear here -->
+                <!-- Options will appear here -->
             </div>
             <div class="chatbot-input-area">
                 <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type a message...">
@@ -44,14 +105,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('chatbot-send');
     const suggestionsContainer = document.getElementById('chatbot-suggestions');
 
-    // Initial Suggestions
-    const initialSuggestions = [
-        "Show me properties in my budget",
-        "What areas are best for families?",
-        "Do you have pet-friendly apartments?",
-        "What is available in my preferred location?"
-    ];
-
     // Helper Functions
     function toggleChat() {
         isOpen = !isOpen;
@@ -59,9 +112,8 @@ document.addEventListener('DOMContentLoaded', () => {
             window.classList.add('active');
             fab.style.display = 'none';
             if (messages.length === 0) {
-                addBotMessage("Hi, I’m your Realtech assistant 👋 How can I help you with properties today?");
-                addBotMessage("Let’s get started with a few quick questions.");
-                renderSuggestions();
+                // Start the flow
+                processStep();
             }
         } else {
             window.classList.remove('active');
@@ -87,13 +139,30 @@ document.addEventListener('DOMContentLoaded', () => {
         addMessage(text, 'user');
     }
 
-    function renderSuggestions() {
+    function processStep() {
+        if (currentStep < steps.length) {
+            const step = steps[currentStep];
+            addBotMessage(step.message);
+
+            // Render options if available
+            if (step.options) {
+                renderOptions(step.options);
+            } else {
+                suggestionsContainer.innerHTML = ''; // Clear options
+            }
+        } else {
+            addBotMessage("Thank you! I've noted all your details. You can now ask me any specific questions.");
+            suggestionsContainer.innerHTML = '';
+        }
+    }
+
+    function renderOptions(options) {
         suggestionsContainer.innerHTML = '';
-        initialSuggestions.forEach(suggestion => {
+        options.forEach(option => {
             const chip = document.createElement('div');
             chip.classList.add('suggestion-chip');
-            chip.textContent = suggestion;
-            chip.onclick = () => handleSend(suggestion);
+            chip.textContent = option;
+            chip.onclick = () => handleSend(option);
             suggestionsContainer.appendChild(chip);
         });
     }
@@ -103,8 +172,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         addUserMessage(text);
         input.value = '';
+        suggestionsContainer.innerHTML = ''; // Clear options after selection
 
-        // Show loading state (optional)
+        // Guided Flow Logic
+        if (currentStep < steps.length) {
+            const step = steps[currentStep];
+
+            // Save data
+            if (step.field) {
+                leadData[step.field] = text;
+            }
+
+            // Move to next step
+            currentStep++;
+
+            if (currentStep < steps.length) {
+                setTimeout(() => processStep(), 500);
+            } else {
+                // Flow finished
+                saveLeadData();
+                setTimeout(() => {
+                    addBotMessage("Thank you! I've noted all your details. You can now ask me any specific questions.");
+                }, 500);
+            }
+
+            saveConversation();
+            return;
+        }
+
+        // Free Chat Logic (Gemini)
         const loadingDiv = document.createElement('div');
         loadingDiv.classList.add('message', 'bot');
         loadingDiv.textContent = '...';
@@ -121,20 +217,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
-            // Remove loading
             const loadingMsg = document.getElementById('loading-msg');
             if (loadingMsg) loadingMsg.remove();
 
             if (data.response) {
                 addBotMessage(data.response);
-
-                // Save conversation
                 saveConversation();
-
-                // Extract preferences periodically or after specific milestones
-                if (messages.length % 4 === 0) {
-                    extractPreferences();
-                }
             } else {
                 addBotMessage("Sorry, I'm having trouble connecting right now.");
             }
@@ -159,15 +247,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    async function extractPreferences() {
+    async function saveLeadData() {
         try {
-            await fetch(`${API_URL}/extract-preferences`, {
+            await fetch(`${API_URL}/save-lead`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ session_id: SESSION_ID, messages: messages })
+                body: JSON.stringify({ session_id: SESSION_ID, lead_data: leadData })
             });
         } catch (e) {
-            console.warn('Failed to extract preferences:', e);
+            console.warn('Failed to save lead data:', e);
         }
     }
 

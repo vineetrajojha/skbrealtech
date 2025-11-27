@@ -13,10 +13,20 @@ create table if not exists conversations (
 create table if not exists lead_profiles (
   id uuid default gen_random_uuid() primary key,
   session_id text unique not null,
+  
+  -- New Fields
   location_preference text,
+  intent text, -- Buy, Rent, Invest
   budget text,
   property_type text,
-  special_preferences jsonb,
+  bedrooms text,
+  special_preferences text,
+  move_in_timeline text,
+  preferred_builders text,
+  visit_timeline text,
+  contact_details text,
+  
+  -- Metadata
   raw_embedding vector(768), -- Gemini embedding dimension
   created_at timestamp with time zone default timezone('utc'::text, now())
 );
