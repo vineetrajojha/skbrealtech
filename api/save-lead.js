@@ -45,6 +45,7 @@ module.exports = async (req, res) => {
 
     } catch (error) {
         console.error('Error in /api/save-lead:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        // Return the actual error message for debugging (be careful in production)
+        res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
 };

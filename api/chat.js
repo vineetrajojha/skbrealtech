@@ -57,6 +57,7 @@ module.exports = async (req, res) => {
 
     } catch (error) {
         console.error('Error in /api/chat:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        // Return detailed error for debugging
+        res.status(500).json({ error: 'Internal Server Error', details: error.message, stack: error.stack });
     }
 };

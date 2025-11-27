@@ -248,14 +248,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function saveLeadData() {
+        console.log('Saving lead data:', leadData); // Debug log
         try {
-            await fetch(`${API_URL}/save-lead`, {
+            const response = await fetch(`${API_URL}/save-lead`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ session_id: SESSION_ID, lead_data: leadData })
             });
+            const result = await response.json();
+            console.log('Save lead result:', result); // Debug log
+            if (!response.ok) {
+                console.error('Server error saving lead:', result);
+            }
         } catch (e) {
-            console.warn('Failed to save lead data:', e);
+            console.error('Failed to save lead data:', e);
         }
     }
 
