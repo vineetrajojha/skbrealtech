@@ -32,6 +32,24 @@ module.exports = async (req, res) => {
         const genAI = new GoogleGenerativeAI(geminiApiKey);
         const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
+        // Sanitize history to ensure alternating roles
+        // Gemini requires User -> Model -> User -> Model
+        // Our base is [User (System), Model (Ack)]
+        // So the incoming history must start with User.
+        // If it starts with Model (from guided flow), we insert a dummy User message.
+
+        let formattedHistory = history.map(msg => ({
+            role: msg.role === 'user' ? 'user' : 'model',
+            parts: [{ text: msg.content }]
+        }));
+
+        if (formattedHistory.length > 0 && formattedHistory[0].role === 'model') {
+            formattedHistory.unshift({
+                role: 'user',
+                parts: [{ text: "Hello, I'm interested in real estate." }]
+            });
+        }
+
         const chat = model.startChat({
             history: [
                 {
@@ -42,10 +60,7 @@ module.exports = async (req, res) => {
                     role: "model",
                     parts: [{ text: "Understood. I am ready to assist with real estate inquiries." }],
                 },
-                ...history.map(msg => ({
-                    role: msg.role === 'user' ? 'user' : 'model',
-                    parts: [{ text: msg.content }]
-                }))
+                ...formattedHistory
             ],
         });
 
