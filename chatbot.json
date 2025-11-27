@@ -1,0 +1,139 @@
+{
+    "name": "Realtech Property Assistant Chatbot",
+    "version": "1.0.0",
+    "description": "A real estate chatbot widget for Realtech using Supabase + Gemini AI",
+    "system_prompt": "You are an expert full-stack developer. Build a complete production-ready web chatbot for Realtech using Supabase and Google Gemini APIs. The chatbot appears as a floating widget, collects user preferences, allows free chat, generates embeddings, and stores conversations + structured data.",
+    "instructions": {
+        "ui_widget": {
+            "floating_icon": {
+                "position": "bottom-right",
+                "color": "green",
+                "effects": [
+                    "glow",
+                    "shine",
+                    "heartbeat-animation"
+                ]
+            },
+            "interaction": {
+                "behavior": "click_to_open_chatbox",
+                "toggle": true,
+                "animations": [
+                    "fade",
+                    "slide_up"
+                ]
+            },
+            "chatbox": {
+                "title": "realtech assistant",
+                "sections": [
+                    "header",
+                    "messages_area",
+                    "suggested_questions",
+                    "input_box"
+                ],
+                "mobile_responsive": true
+            }
+        },
+        "conversation_flow": {
+            "initial_messages": [
+                "hi, i’m your realtech assistant 👋 how can i help you with properties today?",
+                "let’s get started with a few quick questions."
+            ],
+            "guided_data_collection": {
+                "ask_one_by_one": true,
+                "fields": [
+                    "location_preference",
+                    "budget",
+                    "property_type",
+                    "special_preferences"
+                ]
+            },
+            "suggested_questions": [
+                "show me properties in my budget",
+                "what areas are best for families?",
+                "do you have pet-friendly apartments?",
+                "what is available in my preferred location?"
+            ],
+            "free_form_chat": true,
+            "domain_restriction": "Answer only realtech real estate related questions and redirect politely if user goes off-topic."
+        },
+        "data_handling": {
+            "supabase": {
+                "tables": {
+                    "conversations": {
+                        "fields": [
+                            "id (uuid)",
+                            "session_id (string)",
+                            "messages (jsonb)",
+                            "created_at (timestamp)"
+                        ]
+                    },
+                    "lead_profiles": {
+                        "fields": [
+                            "id (uuid)",
+                            "session_id (string)",
+                            "location_preference (text)",
+                            "budget (text)",
+                            "property_type (text)",
+                            "special_preferences (jsonb)",
+                            "raw_embedding (vector)",
+                            "created_at (timestamp)"
+                        ]
+                    }
+                }
+            },
+            "json_export": true,
+            "json_format_example": {
+                "session_id": "abc123",
+                "messages": [],
+                "extracted_preferences": {
+                    "location_preference": "",
+                    "budget": "",
+                    "property_type": "",
+                    "special_preferences": []
+                }
+            }
+        },
+        "ai_engine": {
+            "provider": "Google Gemini",
+            "models": {
+                "chat_model": "gemini-pro",
+                "embedding_model": "embedding-001"
+            },
+            "prompts": {
+                "system": "You are a Realtech real estate assistant. Stay within real estate topics. Collect user preferences through conversation. Ask one question at a time. Allow free chat. Extract structured preferences from the conversation.",
+                "extraction": "Read the following conversation and output ONLY in JSON with fields: location_preference, budget, property_type, special_preferences."
+            }
+        },
+        "backend_logic": {
+            "framework": "Node.js",
+            "routes": {
+                "chat": "/api/chat",
+                "save_conversation": "/api/save-conversation",
+                "extract_preferences": "/api/extract-preferences"
+            },
+            "tasks": [
+                "Forward user messages to Gemini.",
+                "Store conversation in Supabase.",
+                "Call extraction prompt to generate key data points.",
+                "Generate embeddings using embedding model.",
+                "Save lead profile in Supabase."
+            ]
+        },
+        "environment_variables": [
+            "SUPABASE_URL",
+            "SUPABASE_SERVICE_KEY",
+            "GEMINI_API_KEY"
+        ],
+        "output_requirements": {
+            "deliver": [
+                "frontend widget code",
+                "css heartbeat animation",
+                "backend api code",
+                "supabase schema",
+                "embedding integration",
+                "json export function"
+            ],
+            "coding_style": "clean, commented, beginner-friendly"
+        }
+    }
+}
